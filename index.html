@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Disclaimer Jar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Disclaimer Jar</h1>
+    <div class="jar-container">
+      <img src="jar.png" alt="Jar" id="jar-img">
+      <div id="jar-fill"></div>
+      <img src="euro-coin.png" alt="Euro Coin" id="coin" style="display: none;">
+      <span id="counter">0 €</span>
+    </div>
+    <button id="add-coin">Add Euro</button>
+    <details>
+      <summary>More</summary>
+      <button id="empty-jar">Empty Jar</button>
+    </details>
+    <audio id="coin-sound" src="coin-drop.mp3"></audio>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
