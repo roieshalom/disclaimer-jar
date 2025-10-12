@@ -77,7 +77,6 @@ details {
 #jar-img {
   display: flex;
   justify-content: center; /* centers horizontally */
-  align-items: center;
   width: 100%; /* or set a fixed width if preferred */
 }
 
@@ -91,6 +90,6 @@ details {
 }
 
 h1 {
-  margin-bottom: 0.1em; /* reduce this for a smaller gap, e.g. 0.2em or 0.1em */
+  margin-bottom: 0.3em; /* reduce this for a smaller gap, e.g. 0.2em or 0.1em */
   text-align: center;
 }
