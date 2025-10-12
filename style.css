@@ -82,8 +82,8 @@ details {
 }
 
 #jar-img img {
-  max-width: 130px;  /* adjust to preferred jar width */
-  max-height: 170px; /* adjust to preferred jar height */
+  max-width: 350px;  /* adjust to preferred jar width */
+  max-height: 330px; /* adjust to preferred jar height */
   width: auto;
   height: auto;
   display: block;
