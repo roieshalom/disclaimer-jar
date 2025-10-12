@@ -90,3 +90,7 @@ details {
   margin: 0 auto;    /* further ensures horizontal centering */
 }
 
+h1 {
+  margin-bottom: 0.3em; /* reduce this for a smaller gap, e.g. 0.2em or 0.1em */
+  text-align: center;
+}
