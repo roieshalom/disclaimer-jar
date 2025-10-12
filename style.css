@@ -36,13 +36,24 @@ main {
   transition: height 0.7s;
 }
 
-#coin {
+.coin {
   position: absolute;
-  left: 40%;
-  top: 10px;
-  width: 32px;
-  z-index: 2;
+  left: 50%;
+  top: 20px;                /* Adjust as needed for start position */
+  width: 64px;              /* Bigger size, tweak as needed */
+  height: 64px;             /* Bigger size, tweak as needed */
+  transform: translateX(-50%);
+  z-index: 1;               /* Lower than the jar image */
+  opacity: 1;
+  transition: top 0.7s cubic-bezier(0.42,0,0.58,1);
+  /* Add other animation styles as you wish */
 }
+
+#jar-img img {
+  position: relative;
+  z-index: 2;               /* Higher than the coin */
+}
+
 
 counter {
   display: block;
