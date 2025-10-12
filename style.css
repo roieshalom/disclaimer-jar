@@ -74,3 +74,19 @@ details {
   .jar-container {width: 70vw;}
   #counter {font-size: 1.5em;}
 }
+#jar-img {
+  display: flex;
+  justify-content: center; /* centers horizontally */
+  align-items: center;
+  width: 100%; /* or set a fixed width if preferred */
+}
+
+#jar-img img {
+  max-width: 130px;  /* adjust to preferred jar width */
+  max-height: 170px; /* adjust to preferred jar height */
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* further ensures horizontal centering */
+}
+
