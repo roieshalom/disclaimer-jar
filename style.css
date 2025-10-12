@@ -91,6 +91,6 @@ details {
 
 h1 {
   margin-top: 0.5em;
-  margin-bottom: 0.2em;    /* reduce this value to decrease the gap */
+  margin-bottom: 3em;    /* reduce this value to decrease the gap */
   text-align: center;
 }
