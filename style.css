@@ -12,10 +12,8 @@ main {
 }
 
 .jar-container {
-  position: relative;
-  width: 200px;
-  margin: 0 auto 2em auto;
-  height: 280px;
+  margin-top: 0.1em;      /* reduce or set to 0 if needed */
+  padding-top: 0;
 }
 
 #jar-img {
@@ -46,11 +44,13 @@ main {
   z-index: 2;
 }
 
-#counter {
+counter {
   display: block;
+  margin-top: 0;
+  margin-bottom: 0.1em;   /* reduce or set to 0 if you want NO gap */
+  text-align: center;
   font-size: 2em;
-  margin-top: 220px;
-  color: #2d5b9b;
+  font-weight: bold;
 }
 
 button {
@@ -90,6 +90,7 @@ details {
 }
 
 h1 {
-  margin-bottom: 0.3em; /* reduce this for a smaller gap, e.g. 0.2em or 0.1em */
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;    /* reduce this value to decrease the gap */
   text-align: center;
 }
