@@ -4,22 +4,27 @@ const maxEuros = 20; // You can adjust how 'full' the jar gets
 const addBtn = document.getElementById('add-coin');
 const emptyBtn = document.getElementById('empty-jar');
 const counter = document.getElementById('counter');
+
 // Initialize from localStorage (optional)
 if (localStorage.getItem('euroCount')) {
   euroCount = parseInt(localStorage.getItem('euroCount'));
   updateJar();
 }
 
-// Coin animation function (works if you have a coin image for visual feedback, or remove if unused)
+// Coin animation function (leave empty or remove if not used)
 function animateCoin() {
-  // This function can be removed if you don’t want a coin animation
-  // Remove or comment out if not used visually
+  // Animation logic can be added here if needed
 }
 
 function updateJar() {
   counter.textContent = `${euroCount} €`;
   localStorage.setItem('euroCount', euroCount); // Optional
 }
+
+addBtn.onclick = () => {
+  euroCount++;
+  updateJar();
+};
 
 emptyBtn.onclick = () => {
   euroCount = 0;
