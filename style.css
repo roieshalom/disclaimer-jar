@@ -50,7 +50,7 @@ h1, #counter, .jar-container, button, details {
   max-height: 210px;
   width: auto;
   height: auto;
-  z-index: 2;
+  z-index: 100;
   position: static;
 }
 
