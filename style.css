@@ -113,3 +113,31 @@ details {
   #counter {font-size: 1.5em;}
   #jar-img img {max-width: 96vw; max-height: 42vw;}
 }
+.jar-container {
+  position: relative;
+  z-index: 3; /* jar is always on top */
+}
+
+#jar-img img {
+  position: relative;
+  z-index: 4; /* highest value: always on top */
+}
+
+#coins {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 3; /* coins are behind jar, but in front of everything else */
+}
+
+.coin {
+  position: absolute;
+  left: 50%;
+  top: -70px;           /* start above visible area (adjust for your jar's vertical position) */
+  width: 64px; height: 64px;
+  transform: translateX(-50%);
+  z-index: 3;           /* same as #coins, ensures it's under jar but above all other content */
+  opacity: 1;
+  transition: top 0.7s cubic-bezier(0.42,0,0.58,1), opacity 0.3s 0.7s;
+}
