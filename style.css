@@ -27,7 +27,7 @@ h1, #counter, .jar-container, button, details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: auto;             /* Let stacking be natural */
+  z-index: 98;             /* Let stacking be natural */
   width: auto;
   height: auto;
 }
