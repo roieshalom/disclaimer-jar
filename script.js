@@ -18,7 +18,7 @@ function animateCoin() {
   coin.className = 'coin';
 
   // Start well above the jar (off-screen)
-  coin.style.top = '-80px';
+  coin.style.top = '-160px';
 
   document.getElementById('coins').appendChild(coin);
 
