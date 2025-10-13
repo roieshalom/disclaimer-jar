@@ -13,26 +13,28 @@ if (localStorage.getItem('euroCount')) {
 }
 
 function animateCoin() {
-  // Create coin element
   const coin = document.createElement('img');
-  coin.src = 'assets/euro.svg'; // Use your coin SVG here
+  coin.src = 'assets/euro.svg'; // Path to your coin image
   coin.className = 'coin';
 
-  coinsDiv.appendChild(coin);
+  // Start well above the jar (off-screen)
+  coin.style.top = '-80px';
 
-  // Animate to jar area: adjust '200px' as the bottom of the jar image
+  document.getElementById('coins').appendChild(coin);
+
+  // Animate: adjust 'top' to land behind the jar
   setTimeout(() => {
-    coin.style.top = '200px';
+    coin.style.top = '130px'; // Adjust this value for where you want it to "land" (roughly jar's vertical center or bottom)
   }, 30);
 
-  // Fade out and remove after animation
+  // Optionally hide/remove after falling
   setTimeout(() => {
     coin.style.opacity = '0';
-  }, 750);
+  }, 800);
 
   setTimeout(() => {
     coin.remove();
-  }, 1000);
+  }, 1200);
 }
 
 function updateJar() {
