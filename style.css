@@ -103,7 +103,7 @@ details {
   main {max-width: 92vw;}
   .jar-container {width: 70vw;}
   #counter {font-size: 1.5em;}
-  #jar-img img {max-width: 96vw; max-height: 42vw;}
+  #jar-img img {max-width: 96vw; max-height: 72vw;}
 }
 
 @keyframes jar-jiggle {
