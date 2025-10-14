@@ -17,20 +17,31 @@ function animateCoin() {
   coin.src = 'assets/euro.svg'; // Path to your coin image
   coin.className = 'coin';
 
-  // Start well above the jar (off-screen)
-  coin.style.top = '-160px';
+  // Calculate distance from the top of the viewport to the jar container
+  const jarRect = document.getElementById('jar-img').getBoundingClientRect();
+  const jarTop = jarRect.top;
 
-  document.getElementById('coins').appendChild(coin);
+  // Start exactly at the top of the visible screen, no matter where the jar is
+  coin.style.top = '-' + jarTop + 'px';
 
-  // Animate: adjust 'top' to land behind the jar
+  coinsDiv.appendChild(coin);
+
+  // Animate drop: land just behind the jar (adjust 100px as needed for your layout)
   setTimeout(() => {
-    coin.style.top = '130px'; // Adjust this value for where you want it to "land" (roughly jar's vertical center or bottom)
+    coin.style.top = '100px';
   }, 30);
 
-  // Optionally hide/remove after falling
+  // Fade out and jar jiggle after the drop
   setTimeout(() => {
     coin.style.opacity = '0';
-  }, 800);
+
+    // JIGGLE JAR HERE!
+    const jar = document.querySelector('#jar-img img');
+    jar.classList.add('jiggle');
+    setTimeout(() => {
+      jar.classList.remove('jiggle');
+    }, 350); // match animation duration
+  }, 450); // adjust this to match the drop speed visually
 
   setTimeout(() => {
     coin.remove();
@@ -54,30 +65,3 @@ emptyBtn.onclick = () => {
 };
 
 updateJar();
-
-function animateCoin() {
-  const coin = document.createElement('img');
-  coin.src = 'assets/euro.svg';
-  coin.className = 'coin';
-  coin.style.top = '-160px';
-  document.getElementById('coins').appendChild(coin);
-
-  setTimeout(() => {
-    coin.style.top = '100px';
-  }, 30);
-
-  setTimeout(() => {
-    coin.style.opacity = '0';
-
-    // JIGGLE JAR HERE!
-    const jar = document.querySelector('#jar-img img');
-    jar.classList.add('jiggle');
-    setTimeout(() => {
-      jar.classList.remove('jiggle');
-    }, 350); // match animation duration
-  }, 450);
-
-  setTimeout(() => {
-    coin.remove();
-  }, 1200);
-}
