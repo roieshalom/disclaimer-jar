@@ -75,7 +75,7 @@ function animateCoin() {
     setTimeout(() => {
       jar.classList.remove('jiggle');
     }, 350); // match animation duration
-  }, 350);
+  }, 450);
 
   setTimeout(() => {
     coin.remove();
