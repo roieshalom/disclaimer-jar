@@ -238,36 +238,39 @@ main {
   font-size: 1em;
   cursor: pointer;
 }
-
 @media (max-width: 600px) {
-  main {
+  body, main {
     min-height: 100dvh;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    gap: 0.2em;
-    max-width: 98vw;
+    height: 100dvh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0.5em 0 0.5em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Spread main content vertically */
   }
 
-  h1 {
-    margin-bottom: 0.1em;
-    font-size: 2em; /* Slightly smaller on tiny screens if needed */
-  }
-  #counter {
-    margin-bottom: 0.4em;
-    font-size: 3em; /* Keep it big! */
-  }
   .jar-container {
     margin-bottom: 0.5em;
-    max-width: 80vw;
+    max-height: 36vh;
+    min-height: 0;
   }
   #jar-img img {
     max-width: 60vw;
-    max-height: 38vh;
+    max-height: 30vh;  /* Responsive to available space! */
+    height: auto;
+  }
+
+  h1, #counter {
+    margin-bottom: 0.1em;
+    font-size: min(3.5em, 7vw);
   }
   .button-row {
     margin-bottom: 0.4em;
     gap: 0.2em;
   }
 }
+
 
 
