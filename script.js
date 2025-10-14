@@ -54,3 +54,12 @@ emptyBtn.onclick = () => {
 };
 
 updateJar();
+
+setTimeout(() => {
+  document.querySelector('#jar-img img').classList.add('jiggle');
+  // Remove animation after it completes so you can trigger again next time:
+  setTimeout(() => {
+    document.querySelector('#jar-img img').classList.remove('jiggle');
+  }, 350); // match animation duration
+}, 800); // This timeout should be the moment the coin "hits" (matches the coin's landing time)
+
