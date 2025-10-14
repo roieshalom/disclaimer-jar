@@ -99,13 +99,6 @@ details {
   font-size: 1em;
 }
 
-@media (max-width: 500px) {
-  main {max-width: 92vw;}
-  .jar-container {width: 70vw;}
-  #counter {font-size: 1.5em;}
-  #jar-img img {max-width: 96vw; max-height: 72vw;}
-}
-
 @keyframes jar-jiggle {
   0%   { transform: rotate(0deg)}
   20%  { transform: rotate(-3deg)}
