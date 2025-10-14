@@ -12,6 +12,8 @@ main {
   align-items: center;
   gap: 0.5em;
   padding: 2em 0;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 h1, #counter, .jar-container, button, details {
@@ -236,3 +238,36 @@ main {
   font-size: 1em;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  main {
+    min-height: 100dvh;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    gap: 0.2em;
+    max-width: 98vw;
+  }
+
+  h1 {
+    margin-bottom: 0.1em;
+    font-size: 2em; /* Slightly smaller on tiny screens if needed */
+  }
+  #counter {
+    margin-bottom: 0.4em;
+    font-size: 3em; /* Keep it big! */
+  }
+  .jar-container {
+    margin-bottom: 0.5em;
+    max-width: 80vw;
+  }
+  #jar-img img {
+    max-width: 60vw;
+    max-height: 38vh;
+  }
+  .button-row {
+    margin-bottom: 0.4em;
+    gap: 0.2em;
+  }
+}
+
+
