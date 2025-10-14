@@ -72,9 +72,9 @@ h1, #counter, .jar-container, button, details {
 
 
 #counter {
-  font-size: 2em;
+  font-size: 4.5em;
   font-weight: bold;
-  margin: 0.2em 0 3em 0;
+  margin: 0.2em 0 1.5em 0;
 }
 
 button {
