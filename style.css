@@ -17,6 +17,7 @@ main {
 }
 
 h1, #counter, .jar-container, button, details {
+  font-family: 'Knewave', cursive;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -74,13 +75,14 @@ h1, #counter, .jar-container, button, details {
 
 
 #counter {
+  font-family: 'Knewave', cursive;
   font-size: 4.5em;
   font-weight: bold;
   margin: 0.2em 0 1.5em 0;
 }
 
 button {
-  font-size: 1.2em;
+  font-family: sans-serif;
   margin: 0 0 1em 0;
   padding: 0.7em 1.8em;
   background: #1e81b0;
