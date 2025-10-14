@@ -55,11 +55,29 @@ emptyBtn.onclick = () => {
 
 updateJar();
 
-setTimeout(() => {
-  document.querySelector('#jar-img img').classList.add('jiggle');
-  // Remove animation after it completes so you can trigger again next time:
-  setTimeout(() => {
-    document.querySelector('#jar-img img').classList.remove('jiggle');
-  }, 350); // match animation duration
-}, 800); // This timeout should be the moment the coin "hits" (matches the coin's landing time)
+function animateCoin() {
+  const coin = document.createElement('img');
+  coin.src = 'assets/euro.svg';
+  coin.className = 'coin';
+  coin.style.top = '-160px';
+  document.getElementById('coins').appendChild(coin);
 
+  setTimeout(() => {
+    coin.style.top = '130px';
+  }, 30);
+
+  setTimeout(() => {
+    coin.style.opacity = '0';
+
+    // JIGGLE JAR HERE!
+    const jar = document.querySelector('#jar-img img');
+    jar.classList.add('jiggle');
+    setTimeout(() => {
+      jar.classList.remove('jiggle');
+    }, 350); // match animation duration
+  }, 800);
+
+  setTimeout(() => {
+    coin.remove();
+  }, 1200);
+}
