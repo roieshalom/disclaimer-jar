@@ -117,3 +117,15 @@ details {
 .jiggle {
   animation: jar-jiggle 0.35s cubic-bezier(.36,.07,.19,.97);
 }
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;      /* Add this line */
+  margin-left: auto;            /* NEW */
+  margin-right: auto;           /* NEW */
+  max-width: 480px;             /* Or a width that fits your layout */
+  width: 100%;
+  gap: 0.5em;
+  padding: 2em 0;
+}
