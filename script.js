@@ -65,3 +65,21 @@ emptyBtn.onclick = () => {
 };
 
 updateJar();
+
+// Show modal only if user hasn't approved being Gill
+if (!localStorage.getItem('isGillApproved')) {
+  document.getElementById('gill-modal').style.display = 'flex';
+
+  document.getElementById('gill-yes').onclick = function() {
+    localStorage.setItem('isGillApproved', 'yes');
+    document.getElementById('gill-modal').style.display = 'none';
+  };
+
+  document.getElementById('gill-no').onclick = function() {
+    // You can close the modal, redirect, or show a message:
+    alert('Only Gill may use this jar!');
+    // Optionally hide the modal:
+    // document.getElementById('gill-modal').style.display = 'none';
+  };
+}
+
