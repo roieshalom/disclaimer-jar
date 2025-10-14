@@ -149,11 +149,6 @@ main {
   margin: 0;
 }
 
-.icon-btn:hover {
-  background: #155a82;         /* slightly darker on hover */
-  border-color: #155a82;
-}
-
 .icon-img {
   width: 24px;
   height: 24px;
