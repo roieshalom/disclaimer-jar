@@ -63,7 +63,7 @@ function animateCoin() {
   document.getElementById('coins').appendChild(coin);
 
   setTimeout(() => {
-    coin.style.top = '130px';
+    coin.style.top = '100px';
   }, 30);
 
   setTimeout(() => {
