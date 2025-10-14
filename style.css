@@ -165,10 +165,6 @@ main {
   stroke: #fff;                /* make sure outline is also white */
 }
 
-.icon-btn:hover {
-  background: #f1f9fe;
-  border-color: #e74c3c;
-}
 .icon-img {
   width: 24px;
   height: 24px;
