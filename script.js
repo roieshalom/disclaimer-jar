@@ -6,10 +6,11 @@ const emptyBtn = document.getElementById('empty-jar');
 const counter = document.getElementById('counter');
 const coinsDiv = document.getElementById('coins');
 
-// Modal elements for empty jar confirmation
+// Modal elements for empty/reset jar
 const emptyModal = document.getElementById('empty-modal');
-const emptyYes = document.getElementById('empty-yes');
-const emptyNo = document.getElementById('empty-no');
+const emptyConfirm = document.getElementById('empty-confirm');    // "Empty" button
+const resetConfirm = document.getElementById('reset-confirm');    // "Reset" button
+const emptyCancel = document.getElementById('empty-cancel');      // "Cancel" button
 
 // Modal elements for welcome flow
 const jarTitle = document.getElementById('jar-title');
@@ -123,18 +124,28 @@ addBtn.onclick = () => {
   animateCoin();
 };
 
-// Empty button with confirmation modal logic
+// Empty/Reset jar modal logic
 emptyBtn.onclick = () => {
   emptyModal.style.display = 'flex';
 };
 
-emptyYes.onclick = () => {
+emptyConfirm.onclick = () => {
   euroCount = 0;
   updateJar();
   emptyModal.style.display = 'none';
 };
 
-emptyNo.onclick = () => {
+resetConfirm.onclick = () => {
+  euroCount = 0;
+  updateJar();
+  // Clear setup and show the customization workflow
+  localStorage.removeItem('isJarSetup');
+  localStorage.removeItem('addBtnText');
+  emptyModal.style.display = 'none';
+  gillModal.style.display = 'flex';
+};
+
+emptyCancel.onclick = () => {
   emptyModal.style.display = 'none';
 };
 

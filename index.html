@@ -10,27 +10,27 @@
 <body>
   <main>
     <!-- Name modal -->
-<div id="name-modal" class="modal-backdrop" style="display:none;">
-  <div class="modal-card">
-    <h2>What is your name?</h2>
-    <input id="user-name-input" type="text" maxlength="8" autocomplete="off" placeholder="Max 8 characters" style="font-size:1.3em;margin:1em auto;display:block;">
-    <div class="modal-btn-row">
-      <button id="name-submit" class="modal-main-btn">Next</button>
+    <div id="name-modal" class="modal-backdrop" style="display:none;">
+      <div class="modal-card">
+        <h2>What is your name?</h2>
+        <input id="user-name-input" type="text" maxlength="8" autocomplete="off" placeholder="Max 8 characters" style="font-size:1.3em;margin:1em auto;display:block;">
+        <div class="modal-btn-row">
+          <button id="name-submit" class="modal-main-btn">Next</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- Counting modal -->
-<div id="count-modal" class="modal-backdrop" style="display:none;">
-  <div class="modal-card">
-    <h2 id="count-title">What are we counting?</h2>
-    <p class="modal-subtitle">Warning: every coin put in the jar is equal to a real life euro!</p>
-    <input id="user-count-input" type="text" maxlength="14" autocomplete="off" placeholder="Max 14 characters" style="font-size:1.1em;margin:1em auto;display:block;">
-    <div class="modal-btn-row">
-      <button id="count-submit" class="modal-main-btn">Set Up Jar</button>
+    <!-- Counting modal -->
+    <div id="count-modal" class="modal-backdrop" style="display:none;">
+      <div class="modal-card">
+        <h2 id="count-title">What are we counting?</h2>
+        <p class="modal-subtitle">Warning: every coin put in the jar is equal to a real life euro!</p>
+        <input id="user-count-input" type="text" maxlength="14" autocomplete="off" placeholder="Max 14 characters" style="font-size:1.1em;margin:1em auto;display:block;">
+        <div class="modal-btn-row">
+          <button id="count-submit" class="modal-main-btn">Set Up Jar</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
     <h1 id="jar-title">Gill's Disclaimer Jar</h1>
     <span id="counter">0 €</span>
@@ -48,7 +48,7 @@
     </div>
   </main>
 
-  <!-- MODAL placed BEFORE the script! -->
+  <!-- Gill modal -->
   <div id="gill-modal" class="modal-backdrop" style="display:none;">
     <div class="modal-card">
       <h2>Are you Gill?</h2>
@@ -60,16 +60,17 @@
     </div>
   </div>
   
+  <!-- Empty or Reset modal -->
   <div id="empty-modal" class="modal-backdrop" style="display:none;">
-  <div class="modal-card">
-    <h2>Are you sure?</h2>
-    <p class="modal-subtitle">Do you really want to empty the jar?</p>
-    <div class="modal-btn-row">
-      <button id="empty-yes" class="modal-main-btn">Yes, empty it</button>
-      <button id="empty-no"  class="modal-secondary-btn">No, cancel</button>
+    <div class="modal-card">
+      <h2>Empty or reset jar?</h2>
+      <div class="modal-btn-row">
+        <button id="empty-confirm" class="modal-main-btn">Empty</button>
+        <button id="reset-confirm" class="modal-secondary-btn">Reset</button>
+        <button id="empty-cancel" class="modal-secondary-btn">Cancel</button>
+      </div>
     </div>
   </div>
-</div>
 
   <script src="script.js"></script>
 </body>
