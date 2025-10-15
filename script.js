@@ -6,11 +6,10 @@ const emptyBtn = document.getElementById('empty-jar');
 const counter = document.getElementById('counter');
 const coinsDiv = document.getElementById('coins');
 
-// Modal elements for empty/reset jar
+// Modal elements for empty/reset jar (Cancel removed)
 const emptyModal = document.getElementById('empty-modal');
 const emptyConfirm = document.getElementById('empty-confirm');    // "Empty" button
 const resetConfirm = document.getElementById('reset-confirm');    // "Reset" button
-const emptyCancel = document.getElementById('empty-cancel');      // "Cancel" button
 
 // Modal elements for welcome flow
 const jarTitle = document.getElementById('jar-title');
@@ -27,6 +26,33 @@ const countSubmit = document.getElementById('count-submit');
 
 let customName = '';
 let customCount = '';
+
+// Utility: clicking backdrop dismisses modal
+function enableOutsideClickDismiss(modalElem) {
+  modalElem.addEventListener('mousedown', function(e) {
+    if (e.target === modalElem) {
+      modalElem.style.display = 'none';
+    }
+  });
+}
+enableOutsideClickDismiss(emptyModal);
+enableOutsideClickDismiss(gillModal);
+enableOutsideClickDismiss(nameModal);
+enableOutsideClickDismiss(countModal);
+
+// Enter in name input submits
+nameInput.addEventListener('keydown', function(e) {
+  if (e.key === "Enter") {
+    nameSubmit.click();
+  }
+});
+
+// Enter in count input submits
+countInput.addEventListener('keydown', function(e) {
+  if (e.key === "Enter") {
+    countSubmit.click();
+  }
+});
 
 // Initialize from localStorage (optional)
 if (localStorage.getItem('euroCount')) {
@@ -143,10 +169,6 @@ resetConfirm.onclick = () => {
   localStorage.removeItem('addBtnText');
   emptyModal.style.display = 'none';
   gillModal.style.display = 'flex';
-};
-
-emptyCancel.onclick = () => {
-  emptyModal.style.display = 'none';
 };
 
 updateJar();
