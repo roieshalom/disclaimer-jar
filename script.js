@@ -6,6 +6,11 @@ const emptyBtn = document.getElementById('empty-jar');
 const counter = document.getElementById('counter');
 const coinsDiv = document.getElementById('coins');
 
+// Confirmation modal elements (require correct modal HTML markup present)
+const emptyModal = document.getElementById('empty-modal');
+const emptyYes = document.getElementById('empty-yes');
+const emptyNo = document.getElementById('empty-no');
+
 // Initialize from localStorage (optional)
 if (localStorage.getItem('euroCount')) {
   euroCount = parseInt(localStorage.getItem('euroCount'));
@@ -59,9 +64,19 @@ addBtn.onclick = () => {
   animateCoin();
 };
 
+// Empty button with confirmation modal logic
 emptyBtn.onclick = () => {
+  emptyModal.style.display = 'flex';
+};
+
+emptyYes.onclick = () => {
   euroCount = 0;
   updateJar();
+  emptyModal.style.display = 'none';
+};
+
+emptyNo.onclick = () => {
+  emptyModal.style.display = 'none';
 };
 
 updateJar();
@@ -76,10 +91,8 @@ if (!localStorage.getItem('isGillApproved')) {
   };
 
   document.getElementById('gill-no').onclick = function() {
-    // You can close the modal, redirect, or show a message:
     alert('Only Gill may use this jar!');
     // Optionally hide the modal:
     // document.getElementById('gill-modal').style.display = 'none';
   };
 }
-
