@@ -1,5 +1,5 @@
 let euroCount = 0;
-const maxEuros = 20; // You can adjust if needed
+const maxEuros = 999; // You can adjust if needed
 
 const addBtn = document.getElementById('add-coin');
 const emptyBtn = document.getElementById('empty-jar');
@@ -41,6 +41,8 @@ if (!localStorage.getItem('isJarSetup')) {
     localStorage.setItem('isJarSetup', 'Gill');
     gillModal.style.display = 'none';
     jarTitle.textContent = "Gill's Disclaimer Jar";
+    addBtn.textContent = "Disclaimer made";
+    localStorage.setItem('addBtnText', addBtn.textContent);
   };
 
   gillNo.onclick = function() {
@@ -60,10 +62,19 @@ if (!localStorage.getItem('isJarSetup')) {
     const personalized = `${customName}'s ${customCount} Jar`;
     jarTitle.textContent = personalized;
     localStorage.setItem('isJarSetup', personalized);
+
+    // Set button label, e.g. "kiss made", "apology made"
+    addBtn.textContent = `${customCount} made`;
+    localStorage.setItem('addBtnText', addBtn.textContent);
   };
 } else {
-  // Already set up, always show the stored jar title
+  // Already set up, always show the stored jar title and button
   jarTitle.textContent = localStorage.getItem('isJarSetup');
+  if (localStorage.getItem('addBtnText')) {
+    addBtn.textContent = localStorage.getItem('addBtnText');
+  } else {
+    addBtn.textContent = "Disclaimer made";
+  }
 }
 
 function animateCoin() {
