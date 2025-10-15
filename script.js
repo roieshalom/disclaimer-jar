@@ -6,10 +6,26 @@ const emptyBtn = document.getElementById('empty-jar');
 const counter = document.getElementById('counter');
 const coinsDiv = document.getElementById('coins');
 
-// Confirmation modal elements (require correct modal HTML markup present)
+// Modal elements for empty jar confirmation
 const emptyModal = document.getElementById('empty-modal');
 const emptyYes = document.getElementById('empty-yes');
 const emptyNo = document.getElementById('empty-no');
+
+// Modal elements for welcome flow
+const jarTitle = document.getElementById('jar-title');
+const gillModal = document.getElementById('gill-modal');
+const gillYes = document.getElementById('gill-yes');
+const gillNo = document.getElementById('gill-no');
+
+const nameModal = document.getElementById('name-modal');
+const nameInput = document.getElementById('user-name-input');
+const nameSubmit = document.getElementById('name-submit');
+const countModal = document.getElementById('count-modal');
+const countInput = document.getElementById('user-count-input');
+const countSubmit = document.getElementById('count-submit');
+
+let customName = '';
+let customCount = '';
 
 // Initialize from localStorage (optional)
 if (localStorage.getItem('euroCount')) {
@@ -17,21 +33,54 @@ if (localStorage.getItem('euroCount')) {
   updateJar();
 }
 
+// Personalized jar setup flow—only runs on first visit
+if (!localStorage.getItem('isJarSetup')) {
+  gillModal.style.display = 'flex';
+
+  gillYes.onclick = function() {
+    localStorage.setItem('isJarSetup', 'Gill');
+    gillModal.style.display = 'none';
+    jarTitle.textContent = "Gill's Disclaimer Jar";
+  };
+
+  gillNo.onclick = function() {
+    gillModal.style.display = 'none';
+    nameModal.style.display = 'flex';
+  };
+
+  nameSubmit.onclick = function() {
+    customName = nameInput.value.trim().substring(0,8) || 'User';
+    nameModal.style.display = 'none';
+    countModal.style.display = 'flex';
+  };
+
+  countSubmit.onclick = function() {
+    customCount = countInput.value.trim().substring(0,14) || 'Coin';
+    countModal.style.display = 'none';
+    const personalized = `${customName}'s ${customCount} Jar`;
+    jarTitle.textContent = personalized;
+    localStorage.setItem('isJarSetup', personalized);
+  };
+} else {
+  // Already set up, always show the stored jar title
+  jarTitle.textContent = localStorage.getItem('isJarSetup');
+}
+
 function animateCoin() {
   const coin = document.createElement('img');
-  coin.src = 'assets/euro.svg'; // Path to your coin image
+  coin.src = 'assets/euro.svg';
   coin.className = 'coin';
 
   // Calculate distance from the top of the viewport to the jar container
   const jarRect = document.getElementById('jar-img').getBoundingClientRect();
   const jarTop = jarRect.top;
 
-  // Start exactly at the top of the visible screen, no matter where the jar is
+  // Start at the top of the visible screen
   coin.style.top = '-' + jarTop + 'px';
 
   coinsDiv.appendChild(coin);
 
-  // Animate drop: land just behind the jar (adjust 100px as needed for your layout)
+  // Animate drop
   setTimeout(() => {
     coin.style.top = '100px';
   }, 30);
@@ -40,13 +89,12 @@ function animateCoin() {
   setTimeout(() => {
     coin.style.opacity = '0';
 
-    // JIGGLE JAR HERE!
     const jar = document.querySelector('#jar-img img');
     jar.classList.add('jiggle');
     setTimeout(() => {
       jar.classList.remove('jiggle');
-    }, 350); // match animation duration
-  }, 450); // adjust this to match the drop speed visually
+    }, 350);
+  }, 450);
 
   setTimeout(() => {
     coin.remove();
@@ -55,7 +103,7 @@ function animateCoin() {
 
 function updateJar() {
   counter.textContent = `${euroCount} €`;
-  localStorage.setItem('euroCount', euroCount); // Optional
+  localStorage.setItem('euroCount', euroCount);
 }
 
 addBtn.onclick = () => {
@@ -80,19 +128,3 @@ emptyNo.onclick = () => {
 };
 
 updateJar();
-
-// Show modal only if user hasn't approved being Gill
-if (!localStorage.getItem('isGillApproved')) {
-  document.getElementById('gill-modal').style.display = 'flex';
-
-  document.getElementById('gill-yes').onclick = function() {
-    localStorage.setItem('isGillApproved', 'yes');
-    document.getElementById('gill-modal').style.display = 'none';
-  };
-
-  document.getElementById('gill-no').onclick = function() {
-    alert('Only Gill may use this jar!');
-    // Optionally hide the modal:
-    // document.getElementById('gill-modal').style.display = 'none';
-  };
-}

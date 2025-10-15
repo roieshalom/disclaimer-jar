@@ -9,7 +9,30 @@
 </head>
 <body>
   <main>
-    <h1>Gill's Disclaimer Jar</h1>
+    <!-- Name modal -->
+<div id="name-modal" class="modal-backdrop" style="display:none;">
+  <div class="modal-card">
+    <h2>What is your name?</h2>
+    <input id="user-name-input" type="text" maxlength="8" autocomplete="off" placeholder="Max 8 characters" style="font-size:1.3em;margin:1em auto;display:block;">
+    <div class="modal-btn-row">
+      <button id="name-submit" class="modal-main-btn">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Counting modal -->
+<div id="count-modal" class="modal-backdrop" style="display:none;">
+  <div class="modal-card">
+    <h2 id="count-title">What are we counting?</h2>
+    <p class="modal-subtitle">Warning: every coin put in the jar is equal to a real life euro!</p>
+    <input id="user-count-input" type="text" maxlength="14" autocomplete="off" placeholder="Max 14 characters" style="font-size:1.1em;margin:1em auto;display:block;">
+    <div class="modal-btn-row">
+      <button id="count-submit" class="modal-main-btn">Set Up Jar</button>
+    </div>
+  </div>
+</div>
+
+    <h1 id="jar-title">Gill's Disclaimer Jar</h1>
     <span id="counter">0 €</span>
     <div class="jar-container">
       <div id="jar-img">
